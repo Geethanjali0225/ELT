@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Data</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg?w=740&t=st=1707822054~exp=1707822654~hmac=5dd490ce4d4c3f065ac750e58dbfbeddf2c6b8f0b7925550780713517a04cdb1'); /* Replace with the actual filename of your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center; /* Center align the text within the body */
+        }
+        h1 {
+            margin-top: 50px;
+            color: white; /* Adjust the margin to position the title vertically */
+        }
+        /* table {
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 0 auto;
+        } */
+    </style>
+</head>
+<body>
+    <h1>City Data</h1>
+    <table border="1">
+        <tr>
+            <th>Sl No.</th>
+            <th>City Name</th>
+            <th>Population</th>
+            <th>Latitude (°)</th>
+            <th>Longitude (°)</th>
+            <th>Temperature (K)</th>
+            <th>Humidity (%)</th>
+            <th>Wind Speed (miles/hr)</th>
+            <th>Weather Conditions</th>
+            <th>Train Station</th>
+            <th>Code</th>
+        </tr>
+        {% for city in data %}
+        <tr>
+            <td>{{city.city_id}}</td>
+            <td>{{ city.city_name }}</td>
+            <td>{{ city.population }}</td>
+            <td>{{ city.latitude }}</td>
+            <td>{{ city.longitude }}</td>
+            <td>{{ '%0.2f'|format(city.temperature) }}</td>
+            <td>{{ city.humidity }}</td>
+            <td>{{ city.wind_speed }}</td>
+            <td>{{ city.weather_conditions }}</td>
+            <td>{{ city.train_station }}</td>
+            <td>{{ city.code }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
